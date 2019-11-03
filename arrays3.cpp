@@ -4,7 +4,7 @@
 int main()
 {
 
-  int scores[] = {84, 92, 76, 81, 56};
+  int scores[] = {84, 92, 76, 81, 56};//Test: exchange the values. 
   const int numStudents = std::size(scores);
   
   int maxIndex = 0;
