@@ -9,11 +9,15 @@ int main()
 
   //average and standard deviation
   double sum = 0.0, sum2 = 0.0;
-  for (int ii = 0; ii < N; ++ii) {
-    sum += data[ii];
-    sum2 += data[ii]*data[ii];
-  }
+  // for (int ii = 0; ii < N; ++ii) {
+  //sum += data[ii];
+  //sum2 += data[ii]*data[ii];
+  //}
 
+  for (auto x : data) { //you can use \const auto & x\ for slow code! -pass by reference-
+    sum += x;
+    sum2 += x*x;
+  }
   double average = sum/N;
   double stddev = std::sqrt((sum2/N) - (average*average));
 
