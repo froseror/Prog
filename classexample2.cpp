@@ -1,7 +1,7 @@
 #include <iostream>
 #include <cmath>
 
-void average(const double arr[], int N); //Add 'constant' to not  modify array in function
+void statistics(const double arr[], int N, double & res1, double & res2); //Add 'constant' to not  modify array in function
 
 int main()
 {
@@ -9,12 +9,16 @@ int main()
   const int N = 10;
   double data[N] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
 
-  average(data, N);
+  double average, stddev; 
+  statistics(data, N, average, stddev);
   
+  std::cout << "The average is: " << average << "\n";
+  std::cout << "The standard deviation is: " << stddev << "\n";
+
   return 0;
 }
 
-void average(const double arr[], int N)
+void statistics(const double arr[], int N, double & res1, double & res2)
 {
   
   //average and standard deviation
@@ -25,10 +29,9 @@ void average(const double arr[], int N)
     sum2 += arr[ii]*arr[ii];
   }
   
-  double average = sum/N;
-  double stddev = std::sqrt((sum2/N) - (average*average));
+  res1 = sum/N;
+  res2 = std::sqrt((sum2/N) - (res1*res1));
 
-  std::cout << "The average is: " << average << "\n";
-  std::cout << "The standard deviation is: " << stddev << "\n";
+
 
 }
